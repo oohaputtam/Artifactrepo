@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NexusShop — Modern E‑Commerce</title>
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <style>
@@ -49,9 +48,6 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    /* ----- UTILITIES ----- */
-    .muted { color: var(--muted); }
-    .text-center { text-align: center; }
     /* ----- BUTTONS ----- */
     .btn {
       display: inline-flex;
@@ -76,17 +72,6 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(224,122,95,0.30);
     }
-    .btn-secondary {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-    .btn-secondary:hover {
-      background: var(--primary-light);
-      border-color: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(26,26,46,0.20);
-    }
     .btn-ghost {
       background: rgba(255,255,255,0.15);
       color: #fff;
@@ -97,7 +82,7 @@
       border-color: rgba(255,255,255,0.4);
       transform: translateY(-2px);
     }
-    /* ----- HEADER ----- */
+    /* ----- HEADER (sticky, blurred) ----- */
     header {
       position: sticky;
       top: 0;
@@ -338,7 +323,7 @@
       color: var(--accent-dark);
     }
 
-    /* ----- CATEGORIES ----- */
+    /* ----- CATEGORIES (grid) ----- */
     .categories-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -378,7 +363,7 @@
     .cat-card h4 { font-size: 15px; font-weight: 600; }
     .cat-card .count { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    /* ----- PRODUCTS ----- */
+    /* ----- PRODUCTS (with extra details) ----- */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -445,12 +430,24 @@
       color: var(--accent);
       transform: scale(1.10);
     }
+    /* extra details: visibility, stock, SKU */
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .product-meta span i { margin-right: 4px; }
+    .in-stock { color: var(--success); }
+    .out-of-stock { color: #e74c3c; }
     .product-card .body {
       padding: 16px 18px 14px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
     .product-card .body .category-tag {
       font-size: 12px;
@@ -517,7 +514,7 @@
     }
     .product-card .footer .add-btn.added { background: var(--success); }
 
-    /* ----- DEAL ----- */
+    /* ----- DEAL (flash) ----- */
     .deal-wrap {
       display: flex;
       gap: 0;
@@ -608,7 +605,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* ----- TESTIMONIALS ----- */
+    /* ----- TESTIMONIALS (scroll) ----- */
     .testimonials-scroll {
       display: flex;
       gap: 20px;
@@ -784,7 +781,7 @@
       font-size: 13px;
     }
 
-    /* ----- RESPONSIVE ----- */
+    /* ----- RESPONSIVE (keep existing) ----- */
     @media (max-width: 1200px) {
       .products-grid { grid-template-columns: repeat(3,1fr); }
       .categories-grid { grid-template-columns: repeat(3,1fr); }
@@ -915,4 +912,5 @@
     <section class="section" id="categories" aria-labelledby="cat-title">
       <div class="container">
         <div class="section-header">
-          <div class="title-group"><
+          <div class="title-group">
+            <h2
