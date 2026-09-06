@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NexusShop — Modern E‑Commerce</title>
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <style>
-    /* ----- ROOT ----- */
+    /* ----- ROOT (new background + refined palette) ----- */
     :root {
-      --bg: #fafaf8;
+      --bg: #f4f6fa;          /* softer blue-grey background */
       --bg-card: #ffffff;
-      --primary: #1a1a2e;
-      --primary-light: #2d2d44;
-      --accent: #e07a5f;
-      --accent-light: #f4d0c4;
-      --accent-dark: #c05a3e;
-      --muted: #6b6b7a;
-      --muted-light: #a0a0b0;
-      --surface: #f0efed;
+      --primary: #1e2a4a;
+      --primary-light: #2d3b5e;
+      --accent: #d96c4a;       /* warm terracotta */
+      --accent-light: #f2d5c7;
+      --accent-dark: #b85536;
+      --muted: #5f6b7a;
+      --muted-light: #989fb0;
+      --surface: #edf0f5;
       --success: #2a9d8f;
       --warning: #e9c46a;
       --radius: 16px;
       --radius-sm: 10px;
-      --shadow: 0 4px 24px rgba(26,26,46,0.06);
-      --shadow-hover: 0 12px 48px rgba(26,26,46,0.10);
+      --shadow: 0 4px 20px rgba(30,42,74,0.06);
+      --shadow-hover: 0 12px 40px rgba(30,42,74,0.12);
       --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
       --container: 1240px;
     }
@@ -70,7 +71,7 @@
       background: var(--accent-dark);
       border-color: var(--accent-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(224,122,95,0.30);
+      box-shadow: 0 8px 24px rgba(217,108,74,0.30);
     }
     .btn-ghost {
       background: rgba(255,255,255,0.15);
@@ -89,7 +90,7 @@
       z-index: 100;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(26,26,46,0.04);
+      border-bottom: 1px solid rgba(30,42,74,0.06);
     }
     .header-inner {
       display: flex;
@@ -183,7 +184,7 @@
     .search-wrap:focus-within {
       border-color: var(--accent);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(224,122,95,0.10);
+      box-shadow: 0 0 0 4px rgba(217,108,74,0.10);
     }
     .search-wrap input {
       border: 0;
@@ -216,7 +217,7 @@
     #mobileMenu {
       display: none;
       background: #fff;
-      border-top: 1px solid rgba(26,26,46,0.04);
+      border-top: 1px solid rgba(30,42,74,0.06);
       padding: 12px 0 20px;
     }
     #mobileMenu ul {
@@ -248,20 +249,20 @@
       border-radius: var(--radius);
       overflow: hidden;
       margin: 20px 24px 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      background: linear-gradient(135deg, #1e2a4a 0%, #2d3b5e 100%);
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      opacity: 0.35;
+      opacity: 0.30;
       z-index: 0;
     }
     .hero .container { position: relative; z-index: 1; }
     .hero .badge {
       display: inline-block;
-      background: rgba(224,122,95,0.20);
+      background: rgba(217,108,74,0.20);
       color: var(--accent);
       padding: 4px 16px;
       border-radius: 999px;
@@ -363,7 +364,7 @@
     .cat-card h4 { font-size: 15px; font-weight: 600; }
     .cat-card .count { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    /* ----- PRODUCTS (with extra details) ----- */
+    /* ----- PRODUCTS (enhanced with visibility, SKU, stock) ----- */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -430,20 +431,23 @@
       color: var(--accent);
       transform: scale(1.10);
     }
-    /* extra details: visibility, stock, SKU */
+    /* extra product details row */
     .product-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 12px;
+      gap: 4px 14px;
       font-size: 12px;
       color: var(--muted);
       margin-top: 4px;
+      padding: 2px 0;
+      border-top: 1px dashed var(--surface);
+      padding-top: 6px;
     }
-    .product-meta span i { margin-right: 4px; }
+    .product-meta span i { margin-right: 4px; width: 14px; }
     .in-stock { color: var(--success); }
-    .out-of-stock { color: #e74c3c; }
+    .out-of-stock { color: #d95b5b; }
     .product-card .body {
-      padding: 16px 18px 14px;
+      padding: 16px 18px 10px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -469,7 +473,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 4px;
+      margin-top: 2px;
     }
     .product-card .body .price {
       font-weight: 700;
@@ -720,7 +724,7 @@
     footer {
       margin-top: 16px;
       padding: 44px 0 28px;
-      border-top: 1px solid rgba(26,26,46,0.04);
+      border-top: 1px solid rgba(30,42,74,0.06);
     }
     .footer-grid {
       display: grid;
@@ -776,12 +780,12 @@
     .footer-bottom {
       text-align: center;
       padding-top: 20px;
-      border-top: 1px solid rgba(26,26,46,0.04);
+      border-top: 1px solid rgba(30,42,74,0.06);
       color: var(--muted-light);
       font-size: 13px;
     }
 
-    /* ----- RESPONSIVE (keep existing) ----- */
+    /* ----- RESPONSIVE (adjusted) ----- */
     @media (max-width: 1200px) {
       .products-grid { grid-template-columns: repeat(3,1fr); }
       .categories-grid { grid-template-columns: repeat(3,1fr); }
@@ -903,14 +907,4 @@
         <p>Curated fashion, tech & accessories with free shipping on your first order. Limited-time deals await.</p>
         <div class="actions">
           <button class="btn btn-primary" id="shopNow"><i class="fas fa-arrow-right"></i> Shop Now</button>
-          <button class="btn btn-ghost" id="exploreDeals"><i class="fas fa-clock"></i> Explore Deals</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATEGORIES -->
-    <section class="section" id="categories" aria-labelledby="cat-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="title-group">
-            <h2
+          <button class="btn btn-ghost" id="expl
