@@ -8,24 +8,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <style>
-    /* ----- ROOT (new background + refined palette) ----- */
+    /* ----- ROOT (fresh theme: deep teal + amber) ----- */
     :root {
-      --bg: #f4f6fa;          /* softer blue-grey background */
+      --bg: #f0f4f8;          /* light, airy background */
       --bg-card: #ffffff;
-      --primary: #1e2a4a;
-      --primary-light: #2d3b5e;
-      --accent: #d96c4a;       /* warm terracotta */
-      --accent-light: #f2d5c7;
-      --accent-dark: #b85536;
-      --muted: #5f6b7a;
-      --muted-light: #989fb0;
-      --surface: #edf0f5;
+      --primary: #0f2e3a;      /* deep teal */
+      --primary-light: #1a4050;
+      --accent: #d48c4a;       /* warm amber/gold */
+      --accent-light: #f2e0c7;
+      --accent-dark: #b5723a;
+      --muted: #4d6470;
+      --muted-light: #8fa3ae;
+      --surface: #e5ebf0;
       --success: #2a9d8f;
       --warning: #e9c46a;
       --radius: 16px;
       --radius-sm: 10px;
-      --shadow: 0 4px 20px rgba(30,42,74,0.06);
-      --shadow-hover: 0 12px 40px rgba(30,42,74,0.12);
+      --shadow: 0 4px 20px rgba(15,46,58,0.06);
+      --shadow-hover: 0 12px 40px rgba(15,46,58,0.12);
       --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
       --container: 1240px;
     }
@@ -49,7 +49,7 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    /* ----- BUTTONS ----- */
+    /* ----- BUTTONS (refined) ----- */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -71,7 +71,7 @@
       background: var(--accent-dark);
       border-color: var(--accent-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(217,108,74,0.30);
+      box-shadow: 0 8px 24px rgba(212,140,74,0.30);
     }
     .btn-ghost {
       background: rgba(255,255,255,0.15);
@@ -90,7 +90,7 @@
       z-index: 100;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(30,42,74,0.06);
+      border-bottom: 1px solid rgba(15,46,58,0.06);
     }
     .header-inner {
       display: flex;
@@ -100,6 +100,7 @@
       padding: 12px 0;
       min-height: 68px;
     }
+    /* ----- LOGO (custom) ----- */
     .brand {
       display: flex;
       align-items: center;
@@ -110,8 +111,30 @@
       color: var(--primary);
       flex-shrink: 0;
     }
+    .logo-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 12px;
+      color: var(--accent);
+      font-size: 22px;
+      box-shadow: 0 4px 8px rgba(15,46,58,0.15);
+      transition: var(--transition);
+    }
+    .brand:hover .logo-icon {
+      transform: rotate(-6deg) scale(1.02);
+      background: var(--accent);
+      color: #fff;
+    }
     .brand .accent { color: var(--accent); }
-    .brand i { font-size: 26px; color: var(--accent); }
+    .brand span { font-weight: 700; }
+    .brand .logo-text { display: flex; align-items: baseline; gap: 2px; }
+    .brand .logo-text .nexus { color: var(--primary); }
+    .brand .logo-text .shop { color: var(--accent); }
+
     nav.main-nav ul {
       display: flex;
       gap: 4px;
@@ -184,7 +207,7 @@
     .search-wrap:focus-within {
       border-color: var(--accent);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(217,108,74,0.10);
+      box-shadow: 0 0 0 4px rgba(212,140,74,0.10);
     }
     .search-wrap input {
       border: 0;
@@ -217,7 +240,7 @@
     #mobileMenu {
       display: none;
       background: #fff;
-      border-top: 1px solid rgba(30,42,74,0.06);
+      border-top: 1px solid rgba(15,46,58,0.06);
       padding: 12px 0 20px;
     }
     #mobileMenu ul {
@@ -239,7 +262,7 @@
     #mobileMenu ul li a:hover { background: var(--surface); }
     #mobileMenu ul li a i { width: 22px; color: var(--muted); }
 
-    /* ----- HERO ----- */
+    /* ----- HERO (updated gradient) ----- */
     .hero {
       position: relative;
       display: flex;
@@ -249,20 +272,20 @@
       border-radius: var(--radius);
       overflow: hidden;
       margin: 20px 24px 0;
-      background: linear-gradient(135deg, #1e2a4a 0%, #2d3b5e 100%);
+      background: linear-gradient(135deg, #0f2e3a 0%, #1a4050 100%);
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      opacity: 0.30;
+      opacity: 0.25;
       z-index: 0;
     }
     .hero .container { position: relative; z-index: 1; }
     .hero .badge {
       display: inline-block;
-      background: rgba(217,108,74,0.20);
+      background: rgba(212,140,74,0.20);
       color: var(--accent);
       padding: 4px 16px;
       border-radius: 999px;
@@ -303,6 +326,7 @@
       font-size: 28px;
       font-weight: 700;
       letter-spacing: -0.3px;
+      color: var(--primary);
     }
     .section-header .title-group p {
       color: var(--muted);
@@ -431,7 +455,7 @@
       color: var(--accent);
       transform: scale(1.10);
     }
-    /* extra product details row */
+    /* extra product details: visibility, stock, SKU */
     .product-meta {
       display: flex;
       flex-wrap: wrap;
@@ -724,7 +748,7 @@
     footer {
       margin-top: 16px;
       padding: 44px 0 28px;
-      border-top: 1px solid rgba(30,42,74,0.06);
+      border-top: 1px solid rgba(15,46,58,0.06);
     }
     .footer-grid {
       display: grid;
@@ -780,7 +804,7 @@
     .footer-bottom {
       text-align: center;
       padding-top: 20px;
-      border-top: 1px solid rgba(30,42,74,0.06);
+      border-top: 1px solid rgba(15,46,58,0.06);
       color: var(--muted-light);
       font-size: 13px;
     }
@@ -855,7 +879,11 @@
     <div class="container header-inner">
       <div style="display:flex;align-items:center;gap:12px;">
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
-        <a class="brand" href="#"><i class="fas fa-store-alt"></i><span>Nexus<span class="accent">Shop</span></span></a>
+        <!-- custom logo -->
+        <a class="brand" href="#">
+          <span class="logo-icon"><i class="fas fa-cube"></i></span>
+          <span class="logo-text"><span class="nexus">Nexus</span><span class="shop">Shop</span></span>
+        </a>
       </div>
       <nav class="main-nav" id="mainNav" aria-label="Main navigation">
         <ul>
@@ -889,22 +917,4 @@
           <li><a href="#categories"><i class="fas fa-th-large"></i> Categories</a></li>
           <li><a href="#products"><i class="fas fa-fire"></i> Trending</a></li>
           <li><a href="#deals"><i class="fas fa-tag"></i> Deals</a></li>
-          <li><a href="#testimonials"><i class="fas fa-star"></i> Reviews</a></li>
-          <li><a href="#"><i class="far fa-user"></i> Account</a></li>
-          <li><a href="#"><i class="far fa-heart"></i> Wishlist</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main>
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero banner">
-      <div class="container">
-        <div class="badge"><i class="fas fa-sparkles"></i> New Collection 2026</div>
-        <h1>Discover Premium <br>Essentials</h1>
-        <p>Curated fashion, tech & accessories with free shipping on your first order. Limited-time deals await.</p>
-        <div class="actions">
-          <button class="btn btn-primary" id="shopNow"><i class="fas fa-arrow-right"></i> Shop Now</button>
-          <button class="btn btn-ghost" id="expl
+          <li><a href="#testimon
